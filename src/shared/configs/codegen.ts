@@ -4,10 +4,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const config: CodegenConfig = {
-  schema: import.meta.env.BASE_URL,
-  documents: ["./src/shared/graphql/**/*.graphql"],
+  schema: import.meta.env.VITE_BASE_URL,
+  documents: ["./src/entities/**/*.gql"],
   generates: {
-    "./src/shared/graphql/output.ts": {
+    "./src/shared/__generated__/graphql.ts": {
       plugins: [
         "typescript",
         "typescript-operations",

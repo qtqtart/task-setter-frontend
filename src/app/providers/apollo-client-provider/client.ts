@@ -1,11 +1,9 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 
-const link = createHttpLink({
-  uri: import.meta.env.BASE_URL,
-  credentials: "include",
-});
-
 export const client = new ApolloClient({
-  link,
+  link: createHttpLink({
+    uri: import.meta.env.VITE_BASE_URL,
+    credentials: "include",
+  }),
   cache: new InMemoryCache(),
 });
