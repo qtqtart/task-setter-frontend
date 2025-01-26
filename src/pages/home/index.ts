@@ -1,3 +1,1 @@
-import HomePage from "./page";
-
-export default HomePage;
+export { LazyHomePage } from "./ui/lazy";

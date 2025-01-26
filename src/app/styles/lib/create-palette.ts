@@ -1,4 +1,5 @@
 import { ThemeMode } from "@features/theme-mode";
+
 import { PaletteOptions } from "@mui/material";
 import {
   blue,
@@ -18,9 +19,9 @@ export const createPalette = (themeMode: ThemeMode) => {
     grey,
     background: {
       default: grey[50],
-      paper: deepPurple[200],
+      paper: grey[50],
     },
-    divider: grey[700],
+    divider: grey[300],
     primary: {
       main: purple[500],
       light: purple[300],
@@ -70,9 +71,9 @@ export const createPalette = (themeMode: ThemeMode) => {
     grey,
     background: {
       default: grey[900],
-      paper: deepPurple[800],
+      paper: grey[900],
     },
-    divider: grey[700],
+    divider: grey[800],
     primary: {
       main: purple[600],
       light: purple[400],
@@ -116,5 +117,8 @@ export const createPalette = (themeMode: ThemeMode) => {
     },
   };
 
-  return themeMode === "light" ? lightPalette : darkPalette;
+  if (themeMode === "light") return lightPalette;
+  if (themeMode === "dark") return darkPalette;
+
+  return undefined;
 };

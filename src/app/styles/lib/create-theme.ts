@@ -1,4 +1,5 @@
 import { ThemeMode } from "@features/theme-mode";
+
 import { createTheme as createMUITheme } from "@mui/material";
 
 import { createBreakpoints } from "./create-breakpoints";

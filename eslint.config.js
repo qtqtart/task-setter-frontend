@@ -37,6 +37,7 @@ export default ts.config(
       //
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
       //
       "no-undef": "off",
       "no-unused-vars": "off",
@@ -44,7 +45,26 @@ export default ts.config(
       "react/display-name": "off",
       "react/react-in-jsx-scope": "off",
       //
-      "simple-import-sort/imports": "error",
+      "simple-import-sort/imports": [
+        "error",
+        {
+          groups: [
+            [
+              "^(@app)(/.*|$)",
+              "^(@entities)(/.*|$)",
+              "^(@features)(/.*|$)",
+              "^(@pages)(/.*|$)",
+              "^(@shared)(/.*|$)",
+              "^(@widgets)(/.*|$)",
+            ],
+            ["^\\u0000"],
+            ["^@?\\w"],
+            ["^"],
+            ["^\\."],
+          ],
+        },
+      ],
+
       "simple-import-sort/exports": "error",
     },
     settings: {
