@@ -1,4 +1,6 @@
-import { Avatar, Stack, useTheme } from "@mui/material";
+import { Account } from "@widgets/account";
+
+import { Stack, useTheme } from "@mui/material";
 import { FC } from "react";
 
 export const Header: FC = () => {
@@ -29,7 +31,7 @@ export const Header: FC = () => {
           width: "100%",
         }}
       >
-        <Avatar>a</Avatar>
+        <Account />
       </Stack>
     </Stack>
   );

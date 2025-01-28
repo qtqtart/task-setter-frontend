@@ -5,9 +5,9 @@ dotenv.config();
 
 const config: CodegenConfig = {
   schema: import.meta.env.VITE_BASE_URL,
-  documents: ["./src/entities/**/*.gql"],
+  documents: ["./src/**/*.graphql"],
   generates: {
-    "./src/shared/__generated__/graphql.ts": {
+    "./src/shared/graphql/types-and-hooks.ts": {
       plugins: [
         "typescript",
         "typescript-operations",

@@ -1,9 +1,9 @@
 import js from "@eslint/js";
-import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
 import prettierPlugin from "eslint-plugin-prettier";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import reactRefreshPlugin from "eslint-plugin-react-refresh";
+import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
 import globals from "globals";
 import ts from "typescript-eslint";
 
@@ -11,7 +11,7 @@ export default ts.config(
   ...ts.configs.recommended,
   js.configs.recommended,
   {
-    ignores: ["dist", "config.js"],
+    ignores: ["dist"],
   },
   {
     files: ["**/*.{ts,tsx}"],

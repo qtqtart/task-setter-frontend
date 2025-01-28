@@ -1,6 +1,6 @@
 import { App } from "@app";
 
-import "@shared/configs/i18n";
+import "@shared/i18n";
 
 import { createRoot } from "react-dom/client";
 

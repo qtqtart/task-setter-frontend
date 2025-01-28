@@ -13,13 +13,17 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 
 export const router = createBrowserRouter([
   {
-    element: <Navigate replace to={ROUTER_PATHS.FULL.HOME} />,
     index: true,
+    element: <Navigate replace to={ROUTER_PATHS.FULL.HOME} />,
   },
   {
     path: ROUTER_PATHS.LAYOUTS.AUTH,
     element: <LazyAuthLayout />,
     children: [
+      {
+        index: true,
+        element: <Navigate replace to={ROUTER_PATHS.FULL.SIGN_IN} />,
+      },
       {
         path: ROUTER_PATHS.PAGES.SIGN_IN,
         element: <LazySignInPage />,
@@ -38,6 +42,10 @@ export const router = createBrowserRouter([
     path: ROUTER_PATHS.LAYOUTS.DASHBOARD,
     element: <LazyDashboardLayout />,
     children: [
+      {
+        index: true,
+        element: <Navigate replace to={ROUTER_PATHS.FULL.HOME} />,
+      },
       {
         path: ROUTER_PATHS.PAGES.HOME,
         element: <LazyHomePage />,
@@ -62,6 +70,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTER_PATHS.PAGES.SETTINGS,
         element: <LazySettingsPage />,
+      },
+      {
+        path: "*",
+        element: <Navigate replace to={ROUTER_PATHS.FULL.HOME} />,
       },
     ],
   },

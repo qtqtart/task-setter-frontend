@@ -1,0 +1,14 @@
+{
+  "field-is-short": "field is too short",
+  "field-is-long": "field is too long",
+
+  "sign-in": "sign in",
+  "sign-up": "sign up",
+  "sign-out": "sign out",
+
+  "light_mode": "light mode",
+  "dark_mode": "dark mode",
+
+  "open_dashboard": "open dashboard",
+  "close_dashboard": "close dashboard"
+}

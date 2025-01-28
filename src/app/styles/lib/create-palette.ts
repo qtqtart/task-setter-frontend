@@ -19,7 +19,7 @@ export const createPalette = (themeMode: ThemeMode) => {
     grey,
     background: {
       default: grey[50],
-      paper: grey[50],
+      paper: grey[100],
     },
     divider: grey[300],
     primary: {
@@ -76,37 +76,37 @@ export const createPalette = (themeMode: ThemeMode) => {
     divider: grey[800],
     primary: {
       main: purple[600],
-      light: purple[400],
+      light: purple[500],
       dark: purple[800],
       contrastText: grey[900],
     },
     secondary: {
-      main: deepPurple[600],
+      main: deepPurple[500],
       light: deepPurple[400],
-      dark: deepPurple[800],
+      dark: deepPurple[600],
       contrastText: grey[900],
     },
     error: {
       main: red[600],
-      light: red[400],
+      light: red[500],
       dark: red[800],
       contrastText: red[900],
     },
     success: {
       main: green[600],
-      light: green[400],
+      light: green[500],
       dark: green[800],
       contrastText: green[900],
     },
     info: {
       main: blue[600],
-      light: blue[400],
+      light: blue[500],
       dark: blue[800],
       contrastText: blue[900],
     },
     warning: {
       main: orange[600],
-      light: orange[400],
+      light: orange[500],
       dark: orange[800],
       contrastText: orange[900],
     },

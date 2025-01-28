@@ -1,0 +1,12 @@
+query FindMe {
+  findMe {
+    id
+    username
+    email
+    bio
+    avatarUrl
+    createdAt
+    updatedAt
+    isVerifiedByEmail
+  }
+}

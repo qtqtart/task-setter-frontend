@@ -1,8 +1,12 @@
+import { useDashboard } from "@features/dashboard";
+
 import { Stack } from "@mui/material";
 import { FC } from "react";
 import { Outlet } from "react-router-dom";
 
 export const Main: FC = () => {
+  const { isOpenDashboard } = useDashboard();
+
   return (
     <Stack
       component="main"
@@ -18,13 +22,15 @@ export const Main: FC = () => {
           xs: "56px",
         },
         paddingLeft: {
-          sm: "288px",
+          sm: isOpenDashboard ? "288px" : "74px",
           xs: 0,
         },
       }}
     >
       <Stack
         sx={{
+          maxWidth: "100%",
+          height: "100%",
           padding: "8px",
         }}
       >

@@ -14,7 +14,7 @@ i18n
       loadPath: "/locales/{{lng}}/{{ns}}.json",
     },
     debug: false,
-    defaultNS: "translation",
+    defaultNS: "t",
     fallbackLng: LANGUAGES.EN,
     interpolation: {
       escapeValue: false,

@@ -1,12 +1,34 @@
+import { useDashboard } from "@features/dashboard";
 import { useResponsive } from "@shared/hooks/use-responsive";
 
-import { Add as AddIcon } from "@mui/icons-material";
-import { Button, Drawer, IconButton, Stack, useTheme } from "@mui/material";
-import { FC } from "react";
+import {
+  Add as AddIcon,
+  ArrowLeft as ArrowLeftIcon,
+  ArrowRight as ArrowRightIcon,
+} from "@mui/icons-material";
+import {
+  Button,
+  Drawer,
+  IconButton,
+  Stack,
+  Tooltip,
+  useTheme,
+} from "@mui/material";
+import { FC, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 export const Sidebar: FC = () => {
   const { zIndex, palette } = useTheme();
+  const { t } = useTranslation();
   const isOnlyXs = useResponsive("only", "xs");
+  const isDownMd = useResponsive("down", "md");
+
+  const { isOpenDashboard, onToggleIsOpenDasboard, onSetIsOpenDasboard } =
+    useDashboard();
+
+  useEffect(() => {
+    if (isDownMd) onSetIsOpenDasboard(false);
+  }, [isDownMd, onSetIsOpenDasboard]);
 
   return (
     <Drawer
@@ -28,7 +50,7 @@ export const Sidebar: FC = () => {
                 paddingX: "16px",
               }
             : {
-                width: "288px",
+                width: isOpenDashboard ? "288px" : "74px",
                 paddingTop: "64px",
                 paddingBottom: "8px",
                 paddingLeft: "16px",
@@ -60,12 +82,33 @@ export const Sidebar: FC = () => {
         <Stack
           sx={{
             flexDirection: "column",
-            alignItems: "center",
+            alignItems: isOpenDashboard ? "flex-start " : "center",
             justifyContent: "center",
             gap: "8px",
             width: "100%",
           }}
         >
+          {!isDownMd && (
+            <Tooltip
+              title={
+                isOpenDashboard ? t("close_dashboard") : t("open_dashboard")
+              }
+            >
+              <IconButton
+                color="primary"
+                onClick={onToggleIsOpenDasboard}
+                sx={{
+                  display: "flex",
+                  marginTop: isOpenDashboard ? "8px" : 0,
+                  marginLeft: "auto",
+                  border: `1px solid ${palette.divider}`,
+                }}
+              >
+                {isOpenDashboard ? <ArrowLeftIcon /> : <ArrowRightIcon />}
+              </IconButton>
+            </Tooltip>
+          )}
+
           <Button fullWidth>home</Button>
           <Button fullWidth>tasks</Button>
           <Button fullWidth>projects</Button>

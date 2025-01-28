@@ -16,11 +16,14 @@ export function usePopover() {
     [],
   );
 
-  const onClosePopover = useCallback(async (callback?: Callback) => {
-    if (typeof callback === "function") await callback();
+  const onClosePopover: () => void = useCallback(
+    async (callback?: Callback) => {
+      if (typeof callback === "function") await callback();
 
-    setAnchorEl(null);
-  }, []);
+      setAnchorEl(null);
+    },
+    [],
+  );
 
   return {
     anchorEl,

@@ -4,8 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "codegen": "graphql-codegen --config src/shared/configs/codegen.ts",
-    "codegen:watch": "graphql-codegen --config src/shared/configs/codegen.ts --watch",
+    "codegen": "graphql-codegen -w -c ./src/shared/graphql/config.ts",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -14,7 +13,7 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*": [
+    "*.{ts,tsx}": [
       "pnpm run f:prettier",
       "pnpm run f:eslint"
     ]
@@ -33,7 +32,8 @@
     "i18next-browser-languagedetector": "8.0.2",
     "i18next-http-backend": "3.0.2",
     "react": "18.3.1",
-    "react-beautiful-dnd": "13.1.1",
+    "react-dnd": "16.0.1",
+    "react-dnd-html5-backend": "16.0.1",
     "react-dom": "18.3.1",
     "react-dropzone": "14.3.5",
     "react-helmet-async": "2.0.5",
@@ -48,10 +48,9 @@
     "@graphql-codegen/typescript": "4.1.2",
     "@graphql-codegen/typescript-operations": "4.4.0",
     "@graphql-codegen/typescript-react-apollo": "4.3.2",
-    "@parcel/watcher": "2.5.0",
+    "@parcel/watcher": "2.5.1",
     "@types/node": "22.10.5",
     "@types/react": "18.3.18",
-    "@types/react-beautiful-dnd": "13.1.8",
     "@types/react-dom": "18.3.5",
     "@vitejs/plugin-react": "4.3.4",
     "dotenv": "16.4.7",

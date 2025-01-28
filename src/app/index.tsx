@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 import { RouterProvider } from "react-router-dom";
 
 import { ApolloClientProvider } from "./providers/apollo-client";
+import { LoadDataProvider } from "./providers/load-data";
 import { ThemeProvider } from "./providers/theme";
 import { router } from "./router";
 
@@ -28,11 +29,13 @@ export const App: FC = () => {
     <StrictMode>
       <HelmetProvider>
         <ApolloClientProvider>
-          <ThemeProvider>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <RouterProvider router={router} />
-            </LocalizationProvider>
-          </ThemeProvider>
+          <LoadDataProvider>
+            <ThemeProvider>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <RouterProvider router={router} />
+              </LocalizationProvider>
+            </ThemeProvider>
+          </LoadDataProvider>
         </ApolloClientProvider>
       </HelmetProvider>
     </StrictMode>
